@@ -1,17 +1,17 @@
 import asyncio
 from django.shortcuts import render
 from websocketss import websocket_view
-
+from django.http import JsonResponse
+from django.shortcuts import render
+import json
 async def async_websocket_view(request):
     return await websocket_view(request)
 
 def websocket_view_sync(request):
     asyncio.run(async_websocket_view(request))
     return render(request, 'data.html')
-from django.http import JsonResponse
-from django.shortcuts import render
-import json
-from django.http import JsonResponse
+def sample(request):
+    return render(request,'sample.html')
 
 def receive_data(request):
     # Default data value
